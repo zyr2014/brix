@@ -67,29 +67,7 @@
               tmpl: S.one('#tmpl_pagelist').html(),
               data: {}
             });
-            pagelet.ready(function(){
-              /*var pagelist = pagelet.getBrick('pagelist');
-              pagelist.on('send',function(e){
-                e.target.send(function(data){
-                  pagelet.setChunkData(data);
-                  });
-              });*/
-            });
-          /*S.use('io',function(S, IO){
-            IO({
-              url:'pagelist.json',
-              dataType:'jsonp',
-              success: function(data){
-                data = data || {};
-                setPagelet(data);
-              },
-              error: function(xhr, msg){
-                alert(msg);
-              }
-            });
-          });*/
-
-          
+           
       });
     });
   </script>
