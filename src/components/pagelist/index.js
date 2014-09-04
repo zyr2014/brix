@@ -12,13 +12,7 @@ KISSY.add('components/pagelist/index', function(S, Brick, Node, IO) {
 		},
 		dataType: {
 			value: ''
-		}/*,
-		tmpl: {
-			value: 'xxxx'
-		},
-		data: {
-			value: null	
-		}*/
+		}
     }
     Pagelist.EVENTS = {
     	'.pagination':{
@@ -27,7 +21,6 @@ KISSY.add('components/pagelist/index', function(S, Brick, Node, IO) {
     			var cur = $(e.currentTarget).one('.current');
     			var target = $(e.target).parent().attr('class');
     			var flag = false;
-    			debugger;
     			switch(target){
     				case 'prev':
     					prev = cur.prev();
@@ -90,16 +83,7 @@ KISSY.add('components/pagelist/index', function(S, Brick, Node, IO) {
     S.extend(Pagelist, Brick, {
         // 此处定义 Pagelist 自己的方法
         initialize: function() {
-        /* @jintai's note
-        	this.getTmpl
-        	this.getData
-        	render
-
-        	initialize --> el, dom
-
-        	*/
-        	debugger;
-        	var me = this;
+              	var me = this;
         	me.on('send',function(e){
                 me.send(function(data){
                   me.pagelet.setChunkData(data);
