@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('http://at.alicdn.com/t/font_1409636682_5756872.eot');
+  src: url('http://at.alicdn.com/t/font_1409636682_5756872.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('http://at.alicdn.com/t/font_1409636682_5756872.woff') format('woff'), /* chrome、firefox */ url('http://at.alicdn.com/t/font_1409636682_5756872.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('http://at.alicdn.com/t/font_1409636682_5756872.svg#iconfont') format('svg');
+  
+  /* IE9*/
+  /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal;
+}
+.pagelist {
+  border-right: 1px solid #dfdfdf;
+  width: 100%;
+  text-align: left;
+  font: 12px/1.5 tahoma, "microsoft yahei", "\5FAE\8F6F\96C5\9ED1";
+  color: #666;
+}
+.pagelist a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.pagelist thead th {
+  border-left: 1px solid #dfdfdf;
+  padding: 0 20px;
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+.pagelist thead th div {
+  line-height: 18px;
+  white-space: nowrap;
+}
+.pagelist thead .today {
+  color: #f60;
+}
+.pagelist thead .today .left {
+  float: left;
+}
+.pagelist thead .today .right {
+  float: right;
+  line-height: 36px;
+  height: 36px;
+  font-size: 28px;
+}
+.pagelist tbody td {
+  border-left: 1px solid #dfdfdf;
+  padding: 10px 20px 0 20px;
+}
+.pagelist tbody td .item {
+  line-height: 18px;
+  height: 54px;
+  margin-bottom: 15px;
+}
+.pagelist tfoot td {
+  border-left: 1px solid #dfdfdf;
+  background-color: #f5f5f5;
+  line-height: 30px;
+  height: 30px;
+}
+.pagelist tfoot td span {
+  padding: 0 7px;
+}
+.pagelist tfoot td .pagination {
+  float: right;
+}
+.pagelist tfoot td .pagination .prev {
+  margin-right: 10px;
+}
+.pagelist tfoot td .pagination .prev span {
+  vertical-align: top;
+  padding: 0;
+}
+.pagelist tfoot td .pagination .next span {
+  vertical-align: top;
+  padding: 0;
+}
+.pagelist tfoot td .pagination .index-point {
+  display: inline;
+}
+.pagelist tfoot td .pagination .index-point .current {
+  color: #f60;
+}
+.pagelist tfoot td .pagination .index-point .iconfont {
+  margin-left: -10px;
+  font-size: 20px;
+  cursor: pointer;
+}
