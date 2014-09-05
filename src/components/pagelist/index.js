@@ -11,7 +11,7 @@ KISSY.add('components/pagelist/index', function(S, Brick, Node, IO) {
 			value: ''
 		},
 		dataType: {
-			value: ''
+			value: 'json'
 		}/*,
 		tmpl: {
 			value: 'xxxx'
@@ -25,67 +25,63 @@ KISSY.add('components/pagelist/index', function(S, Brick, Node, IO) {
     		click: function(e) {
     			var me = this;
     			var cur = $(e.currentTarget).one('.current');
-    			var target = $(e.target).parent().attr('class');
-    			var flag = false;
-    			debugger;
-    			switch(target){
-    				case 'prev':
-    					prev = cur.prev();
-    					if (prev) {
-    						cur.removeClass('current');
-    						prev.addClass('current');
-    						flag = true;
-    					}
-    					break;
-    				case 'next':
-    					next = cur.next();
-    					if (next) {
-    						cur.removeClass('current');
-    						next.addClass('current');
-    						flag = true;
-    					}
-    					break;
-    				case 'index-point':
-    					target = $(e.target).attr('class');
-    					if (target.indexOf('iconfont') != -1 && target.indexOf('current') == -1) {
-    						$(e.target).addClass('current');
-    						var siblings = $(e.target).siblings();
-    						for (var i = 0; i < siblings.length; i++) {
-    							$(siblings[i]).removeClass('current');
-    						}
-    						flag = true;
-    					}
-    			}
+    			var flag = me.switchHightlight(e.target, cur);
     			if (flag) {
     				var table = $('thead,tbody');
-    				var fired = false;
     				table.animate({opacity:'0'},1,'easeNone',function(){
-    					if (!fired) {
     						me.fire(Pagelist.FIRES.send);
-    						fired = true;
-    					}
-    					
     				});
-    				
     			}
-    			
-
-
     		}
     	}
     };
 	Pagelist.METHODS = {
 		send: function(callback) {
 			var me = this;
+            var url = '../../../src/api/' + me.get('url');
 			var config = {
-				url: me.get('url'),
+				url: url,
 				dataType: me.get('dataType'),
 				success: function(data){
 					callback(data);
 				}
 			}
 			IO(config);
-		}
+		},
+        switchHightlight: function (target, cur) {
+            targetClass = $(target).parent().attr('class');
+            var flag = false;
+            switch(targetClass){
+                case 'prev':
+                    prev = cur.prev();
+                    if (prev) {
+                        cur.removeClass('current');
+                        prev.addClass('current');
+                        flag = true;
+                    }
+                    break;
+                case 'next':
+                    next = cur.next();
+                    if (next) {
+                        cur.removeClass('current');
+                        next.addClass('current');
+                        flag = true;
+                    }
+                    break;
+                case 'index-point':
+                    targetClass = $(target).attr('class');
+                    if (targetClass.indexOf('iconfont') != -1 && targetClass.indexOf('current') == -1) {
+                        $(target).addClass('current');
+                        var siblings = $(target).siblings();
+                        for (var i = 0; i < siblings.length; i++) {
+                            $(siblings[i]).removeClass('current');
+                        }
+                        flag = true;
+                    }
+            }
+            return flag;
+        }
+
 	}    
     S.extend(Pagelist, Brick, {
         // 此处定义 Pagelist 自己的方法
@@ -98,7 +94,6 @@ KISSY.add('components/pagelist/index', function(S, Brick, Node, IO) {
         	initialize --> el, dom
 
         	*/
-        	debugger;
         	var me = this;
         	me.on('send',function(e){
                 me.send(function(data){
